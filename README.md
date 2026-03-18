@@ -1,95 +1,88 @@
-# LibreFlix API
 
-REST API for managing a movie catalog, built as part of the LibreFlix project.
+---
+
+# 📁 **libreflix (frontend)**
+
+``md``
+
+# LibreFlix
+
+A simple movie streaming interface built to learn front-end and full-stack integration.
 
 ## Overview
 
-This API provides endpoints to list and add movies, evolving from in-memory storage to file-based persistence using Node.js.
+LibreFlix started as a static Single Page Application and is evolving into a full-stack project by integrating with a REST API.
 
-The goal of this project is to understand how a backend works in a real-world scenario, including data handling, persistence, and API design.
+This project focuses on understanding how front-end and back-end communicate in real applications.
 
 ---
 
 ## Tech Stack
 
-- Node.js
-- Express
-- File System (fs) for JSON persistence
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
+- Fetch API (async/await)
 
 ---
 
 ## Features
 
-- List all movies
-- Add new movies
-- Persistent storage using `database.json`
-- Automatic ID generation
+- Display movie catalog
+- Featured movie section
+- Dynamic categories (All Movies, Horror)
+- Integration with backend API
+- Trailer playback via YouTube embeds
 
 ---
 
-## Project Structure
-/src (planned refactor)
-server.js
-database.js
-database.json
+## How it works
+
+The front-end fetches movie data from the LibreFlix API and dynamically renders the content on the page.
 
 ---
 
 ## How to run
 
-1. Clone the repository
-2. Install dependencies:
-   npm install
-3. Start the server:
-   node server.js
-4. Server will run on:
+1. Make sure the backend is running:
    http://localhost:3000
-   
+2. Open the project:
+- Open `index.html` in your browser
+
 ---
 
-## Example Endpoint
+## API Dependency
 
-### Get all movies
-GET /movies
+This project depends on:
+**libreflix-api running locally on port 3000**
 
-### Add a new movie
+---
 
-Body example:
-``json
-{
-  "title": "Movie name",
-  "year": 2000,
-  "genre": "Drama",
-  "plot": "Description",
-  "poster": "url",
-  "trailer": "url",
-  "featured": false
-}``
+## Project Evolution
+
+- v1.0 — Static SPA with local data
+- v2.0 — API integration (client-server architecture)
+- Current — Dynamic rendering and category filtering
 
 ---
 
 ## Known Limitations
 
-- No input validation yet
-
-- No concurrency control for file writes
-
-- Entire JSON file is rewritten on each update
+- No loading states yet
+- No error handling for failed API requests
+- UI still in refinement
 
 ---
 
 ## Next Steps
 
-- Add validation for incoming data
-
-- Improve error handling
-
-- Refactor into controllers and routes
-
-- Replace JSON storage with a database
+- Add loading and error states
+- Improve UI/UX
+- Implement search and filtering
+- Enhance component structure
 
 ---
 
 ## About
 
-This project is part of my transition into software development, focusing on backend fundamentals and real-world problem solving.
+This frontend is the "face" of my learning journey in full-stack development. More than just HTML and CSS, this project represents the challenge of connecting different layers of an application, handling asynchronous data flow, and creating a seamless user experience driven by a real API.
