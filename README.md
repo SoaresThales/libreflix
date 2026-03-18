@@ -65,27 +65,30 @@ Body example:
   "trailer": "url",
   "featured": false
 }``
-________________________________________________________________________________________________________
+
+---
+
 ## Known Limitations
 
-No input validation yet
+- No input validation yet
 
-No concurrency control for file writes
+- No concurrency control for file writes
 
-Entire JSON file is rewritten on each update
-________________________________________________________________________________________________________
+- Entire JSON file is rewritten on each update
+
+---
 
 ## Next Steps
 
-Add validation for incoming data
+- Add validation for incoming data
 
-Improve error handling
+- Improve error handling
 
-Refactor into controllers and routes
+- Refactor into controllers and routes
 
-Replace JSON storage with a database
+- Replace JSON storage with a database
 
-________________________________________________________________________________________________________
+---
 
 ## About
 
