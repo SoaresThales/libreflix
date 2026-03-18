@@ -55,7 +55,7 @@ GET /movies
 ### Add a new movie
 
 Body example:
-```json
+``json
 {
   "title": "Movie name",
   "year": 2000,
@@ -64,7 +64,7 @@ Body example:
   "poster": "url",
   "trailer": "url",
   "featured": false
-};
+}``
 ________________________________________________________________________________________________________
 Known Limitations
 
