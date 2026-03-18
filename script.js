@@ -60,27 +60,44 @@ loadFeaturedMovie();
 // ==============================
 
 function loadCatalog() {
-    let animationSlider = document.getElementById('animation-slider');
-    let scifiSlider = document.getElementById('scifi-slider');
-    animationSlider.innerHTML = ""; 
-    scifiSlider.innerHTML = ""; 
+    // 1. declaração dos sliders
+    const allMoviesSlider = document.getElementById('all-movies-slider');
+    const animationSlider = document.getElementById('animation-slider');
+    const scifiSlider = document.getElementById('scifi-slider');
+    const horrorSlider = document.getElementById('horror-slider');
 
-    let animations = movies.filter(function(movie) {
-        return movie.genre === "Animation" && movie.featured === false;
-    });
+    // 2. evitar duplicatas
+    allMoviesSlider.innerHTML = "";
+    animationSlider.innerHTML = "";
+    scifiSlider.innerHTML = "";
+    if (horrorSlider) horrorSlider.innerHTML = ""; // Só limpa se o elemento existir no HTML
 
-    let scifiMovies = movies.filter(function(movie) {
-        return movie.genre === "Sci-Fi" && movie.featured === false;
-    });
-
-   function buildPosters(movieList, targetSlider) {
+    // 3. A função buildPosters
+    function buildPosters(movieList, targetSlider) {
+        if (!targetSlider) return; // Segurança: se a prateleira não existir no HTML, não faz nada
+        
         for (let i = 0; i < movieList.length; i++) {
             let posterHtml = "<img src='" + movieList[i].poster + "' alt='" + movieList[i].title + "' class='movie-poster' onclick='openModal(" + movieList[i].id + ")'>";
             targetSlider.innerHTML += posterHtml;
         }
     }
+
+    // 4. filtragem e distribuição
+    
+    // Prateleira 1: Todos
+    buildPosters(movies, allMoviesSlider);
+
+    // Prateleira 2: Animation
+    let animations = movies.filter(movie => movie.genre === "Animation" && !movie.featured);
     buildPosters(animations, animationSlider);
+
+    // Prateleira 3: Sci-Fi
+    let scifiMovies = movies.filter(movie => movie.genre === "Sci-Fi" && !movie.featured);
     buildPosters(scifiMovies, scifiSlider);
+
+    // Prateleira 4: Horror
+    let horrorMovies = movies.filter(movie => movie.genre === "Horror");
+    buildPosters(horrorMovies, horrorSlider);
 }
 
 // ==============================
