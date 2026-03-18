@@ -66,7 +66,7 @@ Body example:
   "featured": false
 }``
 ________________________________________________________________________________________________________
-Known Limitations
+## Known Limitations
 
 No input validation yet
 
@@ -75,7 +75,7 @@ No concurrency control for file writes
 Entire JSON file is rewritten on each update
 ________________________________________________________________________________________________________
 
-Next Steps
+## Next Steps
 
 Add validation for incoming data
 
@@ -87,6 +87,6 @@ Replace JSON storage with a database
 
 ________________________________________________________________________________________________________
 
-About
+## About
 
 This project is part of my transition into software development, focusing on backend fundamentals and real-world problem solving.
