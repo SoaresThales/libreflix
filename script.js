@@ -2,58 +2,21 @@
 // Data Base (DB)
 // ==============================
 
-const movies = [
-    {
-        id: 1,
-        title: "Steamboat Willie",
-        year: 1928,
-        genre: "Animation",
-        plot: "Mickey Mouse pilots a steamboat and turns everything into musical instruments in his first official appearance.",
-        poster: "https://image.tmdb.org/t/p/original/xEur3v9kMfw4zDueCh4wrUuhW5A.jpg",
-        trailer: "https://www.youtube.com/embed/8LdpvQHg3e0?si=TVuuOCMdWiv2YanF",
-        featured: false
-    },
-    {
-        id: 2,
-        title: "The Kid",
-        year: 1921,
-        genre: "Comedy / Drama",
-        plot: "The Tramp cares for an abandoned child, but events put that relationship in jeopardy.",
-        poster: "https://image.tmdb.org/t/p/original/cvWzCDo3pQyoasvqzRIP7oHK3qn.jpg",
-        trailer: "https://www.youtube.com/embed/9pIyRBDpdAM?si=nlO24g7xSXp6Z8MN",
-        featured: true
-    },
-    {
-        id: 3,
-        title: "Felix in Hollywood",
-        year: 1923,
-        genre: "Animation",
-        plot: "Felix the Cat travels to Hollywood and meets the greatest stars of the silent film era.",
-        poster: "https://image.tmdb.org/t/p/original/3P3ztTCe5jL0Rza8m5ZsUT5NhH7.jpg",
-        trailer: "https://www.youtube.com/embed/7eSE5hzTyIo",
-        featured: false
-    },
-    {
-        id: 4,
-        title: "Minnie the Moocher",
-        year: 1932,
-        genre: "Animation",
-        plot: "Betty Boop runs away from home and ends up in a spooky cave with Cab Calloway.",
-        poster: "https://image.tmdb.org/t/p/original/k6D27wXkz0hufbi9EtEqRXFXbcm.jpg",
-        trailer: "https://www.youtube.com/embed/qFhMuFEtIh4?si=HSH-dyki13YEc6ya",
-        featured: false
-    },
-    {
-        id: 5,
-        title: "A Trip to the Moon",
-        year: 1902,
-        genre: "Sci-Fi",
-        plot: "A group of astronomers travel to the Moon in a cannon-propelled capsule and explore its surface.",
-        poster: "https://image.tmdb.org/t/p/original/acBq3tmTcBAHCjbH7Wi5nt8jnfA.jpg",
-        trailer: "https://www.youtube.com/embed/qcyZ70tO9-Q",
-        featured: false
+let movies = []; //nasce vazio e espera o back-end
+
+async function loadMoviesFromAPI() {
+    try {
+        let response = await fetch('http://localhost:3000/api/movies');  // O Front-end faz o pedido para a URL      
+        movies = await response.json(); // Traduz o JSON de volta
+        console.log("✅ Sucesso! O Front-end puxou os filmes do Node.js!", movies);
+        loadFeaturedMovie();
+        loadCatalog();
+    } catch (error) {        
+        console.error("❌ Erro ao conectar no servidor:", error); // Se o servidor estiver desligado, ele avisa aqui
     }
-];
+}
+
+loadMoviesFromAPI(); // Dá a partida assim que o script é carregado!
 
 // ==============================
 // LIBREFLIX ENGINE
@@ -163,8 +126,6 @@ function closeModal() {
     modalBackdrop.classList.remove('hidden'); 
     modalInfoBox.classList.remove('hidden'); 
 }
-console.log("LibreFlix DB loaded. Total movies: " + movies.length);
-loadCatalog();
 
 // ==============================
 // ACESSIBILIDADE (TECLADO)
