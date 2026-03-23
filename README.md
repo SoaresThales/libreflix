@@ -1,3 +1,13 @@
+# 🚧 REPOSITORY MIGRATED 🚧
+
+**Attention Recruiters and Visitors:**
+
+This repository served as the initial foundation for the LibreFLIX Back-end. To align with Software Engineering best practices and ensure a seamless Developer Experience (DX), this project has evolved into a **Full-Stack Monorepo** architecture.
+
+👉 **[CLICK HERE TO VIEW THE OFFICIAL & UPDATED REPOSITORY](https://github.com/SoaresThales/libreflix-fullstack)** 👈
+
+---
+
 ``md``
 
 # LibreFlix
